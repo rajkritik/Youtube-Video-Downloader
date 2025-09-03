@@ -1,0 +1,91 @@
+INSTALLATION:-
+
+Quick start: Below are OS-specific command-line blocks to install Python, yt-dlp, and FFmpeg (plus Tkinter where needed), followed by simple verification and launch commands suitable for a README section.
+
+Windows (winget)
+Install Python for all users and confirm winget is present:
+
+winget --version
+
+winget install -e --id Python.Python.3.12 --scope machine.
+
+Install yt-dlp via winget or pip:
+
+winget install -e --id yt-dlp.yt-dlp
+or
+
+python -m pip install -U "yt-dlp[default]".
+
+Install FFmpeg on PATH:
+
+winget install ffmpeg
+Note: On some systems PATH may not update unless installing as admin; if ffmpeg isn’t found, open a new terminal or adjust PATH manually as discussed in community reports.
+
+Verify installs and versions:
+
+python --version
+
+yt-dlp --version
+
+ffmpeg -version.
+
+Launch the app from the script folder:
+
+python downloader.py.
+
+Ubuntu/Debian
+System packages (Python, pip, Tkinter, FFmpeg):
+
+sudo apt update
+
+sudo apt install -y python3 python3-pip python3-tk ffmpeg.
+
+Install yt-dlp with pip:
+
+python3 -m pip install -U "yt-dlp[default]".
+
+Verify installs and versions:
+
+python3 --version
+
+yt-dlp --version
+
+ffmpeg -version.
+
+Launch the app from the script folder:
+
+python3 downloader.py.
+
+macOS (Homebrew)
+Install or update Homebrew, then Python:
+
+brew --version (install Homebrew first if missing)
+
+brew install python.
+
+Install yt-dlp and FFmpeg:
+
+python3 -m pip install -U "yt-dlp[default]"
+
+brew install ffmpeg.
+
+Verify installs and versions:
+
+python3 --version
+
+yt-dlp --version
+
+ffmpeg -version.
+
+Launch the app from the script folder:
+
+python3 downloader.py.
+
+Notes for README
+yt-dlp official install options include pip, package managers (winget, Homebrew, APT via PPA), and a standalone binary; this README uses winget/pip on Windows, apt+pip on Ubuntu, and Homebrew+pip on macOS for reliability and updates.
+
+Tkinter is bundled with python.org builds on Windows but must be installed separately on Debian/Ubuntu as python3-tk; the apt command above provides Tkinter for the GUI to run.
+
+FFmpeg is required for merging best video and best audio into MP4; the commands above install it via winget/apt/brew and place it on PATH for yt-dlp to use during postprocessing.
+
+If winget cannot find a package or PATH doesn’t refresh, open a new terminal or run as admin; community notes highlight that FFmpeg’s PATH can require admin or manual adjustment in some cases on Windows.
